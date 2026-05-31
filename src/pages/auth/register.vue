@@ -120,13 +120,15 @@ function goLogin() {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/theme.scss';
+
 .register-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 48rpx;
-  background-color: #ffffff;
+  padding: 0 $space-lg;
+  background-color: $bg-page;
 }
 
 .register-header {
@@ -138,14 +140,14 @@ function goLogin() {
 
 .app-title {
   font-size: 56rpx;
-  font-weight: 700;
-  color: #1677ff;
+  font-weight: $font-weight-bold;
+  color: $brand-primary;
   margin-bottom: 16rpx;
 }
 
 .app-subtitle {
   font-size: 32rpx;
-  color: #6b7280;
+  color: $text-secondary;
 }
 
 .register-form {
@@ -153,26 +155,27 @@ function goLogin() {
 }
 
 .form-item {
-  margin-bottom: 32rpx;
+  margin-bottom: $space-md;
 }
 
 .form-input {
   width: 100%;
   height: 96rpx;
-  padding: 0 32rpx;
+  padding: 0 $space-md;
   font-size: 32rpx;
-  border: 2rpx solid #e5e7eb;
-  border-radius: 16rpx;
-  background-color: #f9fafb;
+  border: 1rpx solid $border-color;
+  border-radius: $radius-md;
+  background-color: $bg-card;
+  color: $text-primary;
 }
 
 .password-hint {
-  margin-bottom: 24rpx;
+  margin-bottom: $space-sm;
 }
 
 .hint-text {
   font-size: 24rpx;
-  color: #ef4444;
+  color: $brand-primary;
 }
 
 .btn-primary {
@@ -181,12 +184,12 @@ function goLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1677ff;
+  background: $brand-gradient;
   color: #ffffff;
   font-size: 34rpx;
-  font-weight: 600;
-  border-radius: 16rpx;
-  margin-top: 24rpx;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  margin-top: $space-sm;
 }
 
 .btn-primary[disabled] {
@@ -197,18 +200,18 @@ function goLogin() {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 48rpx;
-  gap: 8rpx;
+  margin-top: $space-xl;
+  gap: $space-xs;
 }
 
 .footer-text {
   font-size: 28rpx;
-  color: #9ca3af;
+  color: $text-placeholder;
 }
 
 .footer-link {
   font-size: 28rpx;
-  color: #1677ff;
-  font-weight: 500;
+  color: $brand-primary;
+  font-weight: $font-weight-medium;
 }
 </style>

@@ -88,13 +88,15 @@ function goRegister() {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/theme.scss';
+
 .login-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 48rpx;
-  background-color: #ffffff;
+  padding: 0 $space-lg;
+  background-color: $bg-page;
 }
 
 .login-header {
@@ -106,14 +108,14 @@ function goRegister() {
 
 .app-title {
   font-size: 56rpx;
-  font-weight: 700;
-  color: #1677ff;
+  font-weight: $font-weight-bold;
+  color: $brand-primary;
   margin-bottom: 16rpx;
 }
 
 .app-subtitle {
   font-size: 32rpx;
-  color: #6b7280;
+  color: $text-secondary;
 }
 
 .login-form {
@@ -121,17 +123,18 @@ function goRegister() {
 }
 
 .form-item {
-  margin-bottom: 32rpx;
+  margin-bottom: $space-md;
 }
 
 .form-input {
   width: 100%;
   height: 96rpx;
-  padding: 0 32rpx;
+  padding: 0 $space-md;
   font-size: 32rpx;
-  border: 2rpx solid #e5e7eb;
-  border-radius: 16rpx;
-  background-color: #f9fafb;
+  border: 1rpx solid $border-color;
+  border-radius: $radius-md;
+  background-color: $bg-card;
+  color: $text-primary;
 }
 
 .btn-primary {
@@ -140,12 +143,12 @@ function goRegister() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1677ff;
+  background: $brand-gradient;
   color: #ffffff;
   font-size: 34rpx;
-  font-weight: 600;
-  border-radius: 16rpx;
-  margin-top: 48rpx;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  margin-top: $space-xl;
 }
 
 .btn-primary[disabled] {
@@ -156,41 +159,41 @@ function goRegister() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8rpx;
-  margin-top: 32rpx;
-  padding: 24rpx;
-  border-radius: 16rpx;
-  background-color: #f8fafc;
-  border: 2rpx solid #e5e7eb;
+  gap: $space-xs;
+  margin-top: $space-md;
+  padding: $space-sm;
+  border-radius: $radius-md;
+  background-color: $bg-card;
+  border: 1rpx solid $border-color;
 }
 
 .demo-title {
   font-size: 26rpx;
-  color: #6b7280;
+  color: $text-secondary;
 }
 
 .demo-line {
   font-size: 28rpx;
-  color: #374151;
-  font-weight: 500;
+  color: $text-primary;
+  font-weight: $font-weight-medium;
 }
 
 .login-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 48rpx;
-  gap: 8rpx;
+  margin-top: $space-xl;
+  gap: $space-xs;
 }
 
 .footer-text {
   font-size: 28rpx;
-  color: #9ca3af;
+  color: $text-placeholder;
 }
 
 .footer-link {
   font-size: 28rpx;
-  color: #1677ff;
-  font-weight: 500;
+  color: $brand-primary;
+  font-weight: $font-weight-medium;
 }
 </style>
