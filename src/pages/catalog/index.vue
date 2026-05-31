@@ -211,7 +211,9 @@ function formatPrice(price: string | number) {
 @import '../../styles/theme.scss';
 
 .catalog-page {
-  padding: $space-md $space-lg $space-xl;
+  min-height: 100vh;
+  padding: $space-md $space-lg calc($space-xl + 24rpx);
+  background-color: $bg-page;
 }
 
 /* Search Bar */
@@ -230,8 +232,9 @@ function formatPrice(price: string | number) {
   height: 80rpx;
   padding: 0 8rpx 0 $space-md;
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-pill;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-card;
 }
 
 .search-icon {
@@ -286,7 +289,7 @@ function formatPrice(price: string | number) {
 }
 
 .category-tab {
-  padding: 12rpx 24rpx;
+  padding: 12rpx 26rpx;
   border-radius: $radius-pill;
   background-color: $bg-card;
   border: 1rpx solid $border-color;
@@ -320,6 +323,7 @@ function formatPrice(price: string | number) {
   display: flex;
   padding: $space-sm;
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
   transition: transform $transition-fast;
@@ -334,7 +338,7 @@ function formatPrice(price: string | number) {
   width: 200rpx;
   height: 200rpx;
   border-radius: $radius-sm;
-  background-color: $bg-input;
+  background-color: $bg-surface;
   overflow: hidden;
   flex-shrink: 0;
   margin-right: $space-sm;
@@ -381,7 +385,7 @@ function formatPrice(price: string | number) {
 }
 
 .product-name {
-  font-size: $font-md;
+  font-size: $font-base;
   font-weight: $font-weight-semibold;
   color: $text-primary;
   line-height: 40rpx;

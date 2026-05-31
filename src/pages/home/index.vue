@@ -210,12 +210,19 @@ function goProduct(productId: number) {
 @import '../../styles/theme.scss';
 
 .home-page {
-  padding: $space-md $space-lg $space-xl;
+  min-height: 100vh;
+  padding: $space-md $space-lg calc($space-xl + 24rpx);
+  background-color: $bg-page;
 }
 
 /* Header */
 .home-header {
+  padding: $space-md;
   margin-bottom: $space-md;
+  border: 1rpx solid $border-color;
+  border-radius: $radius-md;
+  background-color: $bg-card;
+  box-shadow: $shadow-card;
 }
 
 .brand-row {
@@ -266,9 +273,10 @@ function goProduct(productId: number) {
   height: 80rpx;
   padding: 0 8rpx 0 $space-md;
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-pill;
   margin-bottom: $space-md;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-card;
 }
 
 .search-icon {
@@ -304,11 +312,12 @@ function goProduct(productId: number) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $space-lg;
-  background: $brand-gradient;
+  padding: $space-md;
+  background: $bg-soft-brand;
+  border: 1rpx solid rgba(238, 77, 45, 0.12);
   border-radius: $radius-lg;
   margin-bottom: $space-lg;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-card;
 }
 
 .banner-content {
@@ -319,17 +328,17 @@ function goProduct(productId: number) {
 .banner-title {
   font-size: $font-lg;
   font-weight: $font-weight-bold;
-  color: #ffffff;
+  color: $brand-primary;
   margin-bottom: 8rpx;
 }
 
 .banner-desc {
   font-size: $font-sm;
-  color: rgba(255, 255, 255, 0.85);
+  color: $text-secondary;
 }
 
 .banner-emoji {
-  font-size: 80rpx;
+  font-size: 64rpx;
 }
 
 /* Section */
@@ -369,8 +378,8 @@ function goProduct(productId: number) {
 }
 
 .category-icon {
-  width: 108rpx;
-  height: 108rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: $radius-lg;
   display: flex;
   align-items: center;
@@ -402,6 +411,7 @@ function goProduct(productId: number) {
 
 .product-card {
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-md;
   overflow: hidden;
   box-shadow: $shadow-card;

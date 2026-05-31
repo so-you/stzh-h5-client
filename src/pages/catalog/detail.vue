@@ -97,7 +97,7 @@ function addToCart() {
 function buyNow() {
   if (!product.value) return
   cartStore.addProduct(product.value, 1)
-  uni.navigateTo({ url: '/pages/cart/index' })
+  uni.switchTab({ url: '/pages/cart/index' })
 }
 </script>
 

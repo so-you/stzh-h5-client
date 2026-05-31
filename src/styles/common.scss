@@ -30,9 +30,29 @@ image {
   padding: $space-md $space-lg;
 }
 
+.page-shell {
+  min-height: 100vh;
+  padding: $space-md $space-lg $space-xl;
+  background-color: $bg-page;
+}
+
+.page-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: $space-md;
+}
+
 /* Card base */
 .card {
   background-color: $bg-card;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+.section-card {
+  background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
 }
@@ -102,6 +122,47 @@ button::after {
 .tag-gray {
   background-color: $bg-input;
   color: $text-tertiary;
+}
+
+.commerce-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 12rpx;
+  border-radius: $radius-pill;
+  background-color: rgba(238, 77, 45, 0.08);
+  color: $brand-primary;
+  font-size: $font-xs;
+  font-weight: $font-weight-medium;
+}
+
+.commerce-tag.success {
+  background-color: rgba(38, 170, 153, 0.1);
+  color: $secondary-green;
+}
+
+.commerce-price {
+  color: $text-price;
+  font-weight: $font-weight-bold;
+}
+
+.primary-action,
+.secondary-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-pill;
+  font-size: $font-base;
+  font-weight: $font-weight-semibold;
+}
+
+.primary-action {
+  background: $brand-gradient;
+  color: #ffffff;
+}
+
+.secondary-action {
+  background-color: $bg-soft-brand;
+  color: $brand-primary;
 }
 
 /* Empty state */

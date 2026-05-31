@@ -18,6 +18,7 @@ $bg-page: #f5f5f5;
 $bg-card: #ffffff;
 $bg-surface: #fafafa;
 $bg-input: #f0f0f0;
+$bg-soft-brand: #fff4ef;
 
 // Text
 $text-primary: #222222;
@@ -31,12 +32,14 @@ $text-price-original: #999999;
 // Borders & Dividers
 $border-color: #e8e8e8;
 $divider-color: #f0f0f0;
+$border-strong: #dedede;
 
 // Shadows (subtle, layered)
 $shadow-sm: 0 1rpx 4rpx rgba(0, 0, 0, 0.04);
 $shadow-md: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
 $shadow-lg: 0 4rpx 24rpx rgba(0, 0, 0, 0.08);
 $shadow-card: 0 2rpx 8rpx rgba(0, 0, 0, 0.04), 0 1rpx 2rpx rgba(0, 0, 0, 0.02);
+$shadow-floating: 0 8rpx 32rpx rgba(34, 34, 34, 0.08);
 
 // Radius
 $radius-sm: 8rpx;

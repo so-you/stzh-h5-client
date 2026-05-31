@@ -96,6 +96,7 @@ export default {
     itemsCount: '{count} items',
     empty: 'Your cart is empty',
     emptyDesc: 'Go to Products to choose bonded warehouse goods for ship delivery',
+    goShopping: 'Browse Products',
     estimate: 'Order Estimate',
     totalPrice: 'Goods Amount',
     totalWeight: 'Total Weight',

@@ -90,10 +90,10 @@
         "selectedIconPath": "static/tab-catalog-active.png"
       },
       {
-        "pagePath": "pages/order/index",
-        "text": "订单",
-        "iconPath": "static/tab-order.png",
-        "selectedIconPath": "static/tab-order-active.png"
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "static/tab-cart.png",
+        "selectedIconPath": "static/tab-cart-active.png"
       },
       {
         "pagePath": "pages/mine/index",

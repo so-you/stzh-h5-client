@@ -90,7 +90,11 @@
       :title="$t('cart.empty')"
       :description="$t('cart.emptyDesc')"
       emoji="🛒"
-    />
+    >
+      <template #action>
+        <button class="empty-action" @tap="goShopping">{{ $t('cart.goShopping') }}</button>
+      </template>
+    </AppEmpty>
   </view>
 </template>
 
@@ -177,6 +181,10 @@ function removeItem(productId: number) {
   refreshEstimate()
 }
 
+function goShopping() {
+  uni.switchTab({ url: '/pages/catalog/index' })
+}
+
 function tradeModeLabel(mode: TTradeMode) {
   return mode === 'AUTO_TRADE' ? t('cart.autoTrade') : t('cart.matchingOrder')
 }
@@ -257,11 +265,14 @@ async function submitOrder() {
 
 .cart-page {
   min-height: 100vh;
-  padding: $space-md $space-lg 150rpx;
+  padding: $space-md $space-lg 230rpx;
   background-color: $bg-page;
 }
 
 .page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: $space-md;
 }
 
@@ -274,7 +285,6 @@ async function submitOrder() {
 
 .page-subtitle {
   display: block;
-  margin-top: $space-xs;
   font-size: $font-sm;
   color: $text-secondary;
 }
@@ -289,7 +299,8 @@ async function submitOrder() {
 .section {
   background-color: $bg-card;
   border-radius: $radius-md;
-  box-shadow: $shadow-sm;
+  border: 1rpx solid $border-color;
+  box-shadow: $shadow-card;
 }
 
 .cart-item {
@@ -300,8 +311,8 @@ async function submitOrder() {
 }
 
 .item-image {
-  width: 150rpx;
-  height: 150rpx;
+  width: 156rpx;
+  height: 156rpx;
   border-radius: $radius-sm;
   overflow: hidden;
   background-color: $bg-surface;
@@ -359,13 +370,14 @@ async function submitOrder() {
   display: flex;
   align-items: center;
   border: 1rpx solid $border-color;
-  border-radius: $radius-sm;
+  border-radius: $radius-pill;
   overflow: hidden;
+  background-color: $bg-card;
 }
 
 .qty-btn,
 .qty-value {
-  min-width: 56rpx;
+  min-width: 60rpx;
   height: 52rpx;
   display: flex;
   align-items: center;
@@ -375,7 +387,8 @@ async function submitOrder() {
 
 .qty-btn {
   background-color: $bg-surface;
-  color: $text-primary;
+  color: $brand-primary;
+  font-weight: $font-weight-semibold;
 }
 
 .remove-btn {
@@ -455,7 +468,8 @@ async function submitOrder() {
   width: 100%;
   box-sizing: border-box;
   border-radius: $radius-sm;
-  background-color: $bg-input;
+  background-color: $bg-surface;
+  border: 1rpx solid $border-color;
   color: $text-primary;
   font-size: $font-base;
 }
@@ -474,14 +488,15 @@ async function submitOrder() {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: var(--window-bottom);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $space-sm;
-  padding: $space-sm $space-lg 34rpx;
+  padding: $space-sm $space-lg calc(18rpx + env(safe-area-inset-bottom));
   background-color: $bg-card;
   box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
+  border-top: 1rpx solid $divider-color;
 }
 
 .bottom-total {
@@ -506,5 +521,19 @@ async function submitOrder() {
 
 .submit-btn[disabled] {
   opacity: 0.65;
+}
+
+.empty-action {
+  margin-top: $space-md;
+  min-width: 220rpx;
+  height: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-pill;
+  background: $brand-gradient;
+  color: #ffffff;
+  font-size: $font-sm;
+  font-weight: $font-weight-semibold;
 }
 </style>

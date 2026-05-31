@@ -29,17 +29,17 @@
 
       <!-- Menu Grid -->
       <view class="menu-grid">
+        <view class="menu-grid-item order-entry" @tap="goMyOrders">
+          <view class="menu-grid-icon" style="background: #FFF4EF;">
+            <text class="grid-emoji">📋</text>
+          </view>
+          <text class="menu-grid-label">{{ $t('mine.myOrders') }}</text>
+        </view>
         <view class="menu-grid-item" @tap="goScanReceipt">
           <view class="menu-grid-icon" style="background: #FFF3E0;">
             <text class="grid-emoji">📷</text>
           </view>
           <text class="menu-grid-label">{{ $t('mine.scanReceipt') }}</text>
-        </view>
-        <view class="menu-grid-item" @tap="goMyOrders">
-          <view class="menu-grid-icon" style="background: #E3F2FD;">
-            <text class="grid-emoji">📋</text>
-          </view>
-          <text class="menu-grid-label">{{ $t('mine.myOrders') }}</text>
         </view>
         <view class="menu-grid-item" @tap="goShipInfo">
           <view class="menu-grid-icon" style="background: #E8F5E9;">
@@ -174,7 +174,7 @@ function goScanReceipt() {
 }
 
 function goMyOrders() {
-  uni.switchTab({ url: '/pages/order/index' })
+  uni.navigateTo({ url: '/pages/order/index' })
 }
 
 function goShipInfo() {
@@ -214,12 +214,12 @@ function goRegister() {
 .mine-page {
   min-height: 100vh;
   background-color: $bg-page;
-  padding-bottom: 120rpx;
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
 }
 
 /* Profile Header */
 .profile-header {
-  background: $brand-gradient;
+  background: linear-gradient(135deg, $brand-primary 0%, $brand-primary-light 100%);
   padding: $space-xl $space-lg $space-lg;
   border-radius: 0 0 $radius-xl $radius-xl;
   margin-bottom: $space-md;
@@ -332,9 +332,20 @@ function goRegister() {
   align-items: center;
   padding: $space-sm 0;
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
   transition: transform $transition-fast;
+}
+
+.menu-grid-item.order-entry {
+  border-color: rgba(238, 77, 45, 0.22);
+  background-color: #fffdfb;
+}
+
+.order-entry .menu-grid-label {
+  color: $brand-primary;
+  font-weight: $font-weight-semibold;
 }
 
 .menu-grid-item:active {
@@ -364,6 +375,7 @@ function goRegister() {
 .settings-section {
   margin: 0 $space-lg;
   background-color: $bg-card;
+  border: 1rpx solid $border-color;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
   overflow: hidden;
@@ -415,6 +427,7 @@ function goRegister() {
   align-items: center;
   justify-content: center;
   background-color: $bg-card;
+  border: 1rpx solid rgba(238, 77, 45, 0.16);
   color: $brand-primary;
   font-size: $font-md;
   font-weight: $font-weight-medium;

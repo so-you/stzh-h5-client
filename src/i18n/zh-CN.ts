@@ -96,6 +96,7 @@ export default {
     itemsCount: '共 {count} 件商品',
     empty: '购物车为空',
     emptyDesc: '去商品页选择需要配送到船的保税仓商品',
+    goShopping: '去选购',
     estimate: '订单试算',
     totalPrice: '商品金额',
     totalWeight: '总重量',
