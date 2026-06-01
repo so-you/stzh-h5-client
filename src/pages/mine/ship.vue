@@ -221,7 +221,7 @@ async function saveShip() {
   align-items: center;
   justify-content: center;
   border-radius: 12rpx;
-  background-color: #1677ff;
+  background: linear-gradient(135deg, #ee4d2d 0%, #ff733e 100%);
   color: #ffffff;
   font-size: 30rpx;
   font-weight: 600;

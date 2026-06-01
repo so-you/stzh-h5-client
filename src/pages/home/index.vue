@@ -7,8 +7,13 @@
           <text class="brand-icon">🚁</text>
           <text class="brand-name">{{ $t('home.brandName') }}</text>
         </view>
-        <view class="brand-tag">
-          <text class="tag-text">{{ $t('home.brandTag') }}</text>
+        <view class="brand-actions">
+          <view class="brand-tag">
+            <text class="tag-text">{{ $t('home.brandTag') }}</text>
+          </view>
+          <view class="lang-switch" @tap="toggleLanguage">
+            <text class="lang-text">{{ currentLangLabel }}</text>
+          </view>
         </view>
       </view>
       <text class="subtitle">{{ $t('home.subtitle') }}</text>
@@ -117,7 +122,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { getCategories, getProducts } from '../../api/catalog'
 import AppSkeleton from '../../components/AppSkeleton.vue'
@@ -204,6 +209,20 @@ function goCategory(categoryId: number) {
 function goProduct(productId: number) {
   uni.navigateTo({ url: `/pages/catalog/detail?id=${productId}` })
 }
+
+const currentLangLabel = computed(() => {
+  return locale.value === 'zh-CN' ? t('common.languageZh') : t('common.languageEn')
+})
+
+function toggleLanguage() {
+  const newLocale = locale.value === 'zh-CN' ? 'en-US' : 'zh-CN'
+  locale.value = newLocale
+  try {
+    localStorage.setItem('locale', newLocale)
+  } catch {
+    // ignore
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -252,6 +271,25 @@ function goProduct(productId: number) {
   padding: 4rpx 12rpx;
   background: $brand-gradient;
   border-radius: $radius-pill;
+}
+
+.brand-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.lang-switch {
+  padding: 4rpx 16rpx;
+  background-color: $bg-surface;
+  border: 1rpx solid $border-color;
+  border-radius: $radius-pill;
+}
+
+.lang-text {
+  font-size: $font-xs;
+  color: $text-secondary;
+  font-weight: $font-weight-medium;
 }
 
 .tag-text {
