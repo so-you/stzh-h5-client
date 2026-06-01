@@ -52,16 +52,6 @@
         />
       </view>
       <view class="form-item">
-        <text class="form-label">{{ $t('ship.currentBerth') }}</text>
-        <input
-          v-model="form.currentBerth"
-          class="form-input"
-          type="text"
-          :placeholder="$t('ship.currentBerthPlaceholder')"
-          :placeholder-style="'color: #9CA3AF'"
-        />
-      </view>
-      <view class="form-item">
         <text class="form-label">{{ $t('ship.targetGps') }}</text>
         <input
           v-model="form.targetGps"
