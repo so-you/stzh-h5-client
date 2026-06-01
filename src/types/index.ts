@@ -83,6 +83,8 @@ export interface IShip {
   shipNationality: string
   imo?: string
   mmsi?: string
+  currentBerth?: string
+  targetGps?: string
   isDefault?: boolean
 }
 
@@ -103,6 +105,8 @@ export interface IOrder {
   shipNationality: string
   imo?: string
   mmsi?: string
+  berthOrAnchorage?: string
+  targetGps?: string
   shippingAgentName?: string
   remark?: string
   createdAt?: string
@@ -160,4 +164,6 @@ export interface ICreateOrderParams {
   shipNationality?: string
   imo?: string
   mmsi?: string
+  berthOrAnchorage?: string
+  targetGps?: string
 }

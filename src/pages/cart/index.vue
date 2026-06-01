@@ -61,8 +61,16 @@
           <input v-model="form.consigneeName" class="field-input" :placeholder="$t('cart.consigneePlaceholder')" />
         </view>
         <view class="form-field">
-          <text class="field-label">{{ $t('cart.cabinNo') }}</text>
-          <input v-model="form.cabinNo" class="field-input" :placeholder="$t('cart.cabinPlaceholder')" />
+          <text class="field-label">{{ $t('cart.shippingAddress') }}</text>
+          <textarea v-model="form.shippingAddress" class="field-textarea" :placeholder="$t('cart.shippingAddressPlaceholder')" />
+        </view>
+        <view class="form-field">
+          <text class="field-label">{{ $t('cart.berth') }}</text>
+          <input v-model="form.berth" class="field-input" :placeholder="$t('cart.berthPlaceholder')" />
+        </view>
+        <view class="form-field">
+          <text class="field-label">{{ $t('cart.coordinate') }}</text>
+          <input v-model="form.coordinate" class="field-input" :placeholder="$t('cart.coordinatePlaceholder')" />
         </view>
         <view class="form-field">
           <text class="field-label">{{ $t('cart.contactInfo') }}</text>
@@ -116,7 +124,9 @@ const submitting = ref(false)
 
 const form = reactive({
   consigneeName: '',
-  cabinNo: '',
+  shippingAddress: '',
+  berth: '',
+  coordinate: '',
   contactInfo: '',
   remark: '',
 })
@@ -141,6 +151,18 @@ function prefillForm() {
   }
   if (!form.contactInfo) {
     form.contactInfo = user?.contactPhone || user?.email || ''
+  }
+
+  const ship = user?.ships?.find((item) => item.isDefault) || user?.ships?.[0]
+  if (!form.shippingAddress && ship) {
+    const parts = [ship.shipName, ship.shipNo, ship.imo].filter(Boolean)
+    form.shippingAddress = parts.join('-')
+  }
+  if (!form.berth && ship?.currentBerth) {
+    form.berth = ship.currentBerth
+  }
+  if (!form.coordinate && ship?.targetGps) {
+    form.coordinate = ship.targetGps
   }
 }
 
@@ -228,8 +250,8 @@ async function submitOrder() {
     uni.showToast({ title: t('cart.consigneeRequired'), icon: 'none' })
     return
   }
-  if (!form.cabinNo.trim()) {
-    uni.showToast({ title: t('cart.cabinRequired'), icon: 'none' })
+  if (!form.shippingAddress.trim()) {
+    uni.showToast({ title: t('cart.shippingAddressRequired'), icon: 'none' })
     return
   }
 
@@ -240,7 +262,7 @@ async function submitOrder() {
     const order = await createOrder({
       items: estimatePayload(),
       consigneeName: form.consigneeName.trim(),
-      cabinNo: form.cabinNo.trim(),
+      cabinNo: form.shippingAddress.trim(),
       contactInfo: form.contactInfo.trim() || undefined,
       remark: form.remark.trim() || undefined,
       shipNo: user?.shipNo || ship?.shipNo,
@@ -248,6 +270,8 @@ async function submitOrder() {
       shipNationality: user?.shipNationality || user?.nationality || ship?.shipNationality,
       imo: user?.imo || ship?.imo,
       mmsi: user?.mmsi || ship?.mmsi,
+      berthOrAnchorage: form.berth.trim() || undefined,
+      targetGps: form.coordinate.trim() || undefined,
     })
     cartStore.clear()
     uni.showToast({ title: t('cart.submitSuccess'), icon: 'success' })

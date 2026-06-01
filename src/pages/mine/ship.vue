@@ -51,6 +51,26 @@
           :placeholder-style="'color: #9CA3AF'"
         />
       </view>
+      <view class="form-item">
+        <text class="form-label">{{ $t('ship.currentBerth') }}</text>
+        <input
+          v-model="form.currentBerth"
+          class="form-input"
+          type="text"
+          :placeholder="$t('ship.currentBerthPlaceholder')"
+          :placeholder-style="'color: #9CA3AF'"
+        />
+      </view>
+      <view class="form-item">
+        <text class="form-label">{{ $t('ship.targetGps') }}</text>
+        <input
+          v-model="form.targetGps"
+          class="form-input"
+          type="text"
+          :placeholder="$t('ship.targetGpsPlaceholder')"
+          :placeholder-style="'color: #9CA3AF'"
+        />
+      </view>
     </view>
 
     <button class="save-button" :loading="saving" :disabled="saving" @tap="saveShip">
@@ -77,6 +97,8 @@ const form = reactive({
   shipNationality: '',
   imo: '',
   mmsi: '',
+  currentBerth: '',
+  targetGps: '',
 })
 
 onShow(async () => {
@@ -98,6 +120,8 @@ function getCurrentShip(): IShip | null {
     shipNationality: userInfo.shipNationality || userInfo.nationality || '',
     imo: userInfo.imo || '',
     mmsi: userInfo.mmsi || '',
+    currentBerth: '',
+    targetGps: '',
   }
 }
 
@@ -107,6 +131,8 @@ function fillForm(ship: IShip | null) {
   form.shipNationality = ship?.shipNationality || ''
   form.imo = ship?.imo || ''
   form.mmsi = ship?.mmsi || ''
+  form.currentBerth = ship?.currentBerth || ''
+  form.targetGps = ship?.targetGps || ''
 }
 
 function validateForm() {
@@ -131,6 +157,8 @@ async function saveShip() {
       shipNationality: form.shipNationality.trim(),
       imo: form.imo.trim() || undefined,
       mmsi: form.mmsi.trim() || undefined,
+      currentBerth: form.currentBerth.trim() || undefined,
+      targetGps: form.targetGps.trim() || undefined,
     })
     await userStore.fetchProfile().catch(() => undefined)
     uni.showToast({ title: t('ship.saveSuccess'), icon: 'success' })
