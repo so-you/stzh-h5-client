@@ -182,7 +182,7 @@ function goShipInfo() {
 }
 
 function goProfile() {
-  uni.showToast({ title: t('mine.profileComingSoon'), icon: 'none' })
+  uni.navigateTo({ url: '/pages/mine/profile' })
 }
 
 function handleLogout() {
